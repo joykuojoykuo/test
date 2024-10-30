@@ -36,7 +36,7 @@ Modify the lexical scanner to enable it to pass token information to the syntax 
 %%
 ```
 
-### Parser (parser.y)
+### Parser (**`parser.y`**)
 
 #### Token Definitions
 
