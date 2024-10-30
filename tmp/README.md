@@ -94,6 +94,8 @@ Define the tokens that will be passed from the scanner.
 
 #### Syntactic Definitions
 
+Complete the following structure according to the description in the `spec`.
+
 - _Program Units_
   - _Program_
   - _Function_
