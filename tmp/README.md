@@ -17,6 +17,8 @@ This project implements a syntax parser for the `P` language using `yacc`. Addit
 
 Modify the lexical scanner to enable it to pass token information to the syntax parser.
 
+##### For Example
+
 ```lex
 %%
 
@@ -134,6 +136,8 @@ Complete the following structure according to the description in the `spec`.
 ##### For Example
 
 ```yacc
+%%
+
 /* Program Units */
 program_unit: program | function;
 
@@ -158,6 +162,8 @@ formal_argument_list: /* empty */ | sub_formal_argument_list;
 sub_formal_argument_list: formal_argument | sub_formal_argument_list ';' formal_argument;
 
 formal_argument: identifier_list ':' type;
+
+%%
 ```
 
 ## What is the hardest you think in this project
