@@ -13,6 +13,15 @@ About 7 hours.
 
 This project implements a syntax parser for the `P` language using `yacc`. Additionally, it modifies the lexical scanner to return tokens.
 
+### Project Structure
+
+- /src
+  - Makefile
+  - **`scanner.l`**
+  - **`parser.y`**
+- /report
+  - **`README.md`**
+
 ### Scanner (scanner.l)
 
 Modify the lexical scanner to enable it to pass token information to the syntax parser.
