@@ -18,7 +18,11 @@ This project implements a syntax parser for the `P` language using `yacc`. Addit
 Modify the lexical scanner to enable it to pass token information to the syntax parser.
 
 ```lex
+%%
+
 [a-zA-Z][a-zA-Z0-9]* { listLiteral("id", yytext); return IDENTIFIER;}
+
+%%
 ```
 
 ### Parser (parser.y)
@@ -35,58 +39,58 @@ Define the tokens that will be passed from the scanner.
 
 |lexeme|token||lexeme|token|
 |:-:|:-:|:-:|:-:|:-:|
-|`,`|**','**||`(`|**'('**|
-|`;`|**';'**||`)`|**')'**|
-|`:`|**':'**||`[`|**'['**|
-||||`]`|**']'**|
+|`,`|','||`(`|'('|
+|`;`|';'||`)`|')'|
+|`:`|':'||`[`|'['|
+||||`]`|']'|
 
 ##### Operators
 
 |lexeme|token||lexeme|token||lexeme|token|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|`+`|**'+'**||`<`|**LT**||`and`|**AND**|
-|`-`|**'-'**||`<=`|**LE**||`or`|**OR**|
-|`*`|**'*'**||`<>`|**NE**||`not`|**NOT**|
-|`/`|**'/'**||`>=`|**GE**||
-|`mod`|**MOD**||`>`|**GT**||
-|`=`|**ASSIGN**||`=`|**EQ**||
+|`+`|'+'||`<`|LT||`and`|AND|
+|`-`|'-'||`<=`|LE||`or`|OR|
+|`*`|'*'||`<>`|NE||`not`|NOT|
+|`/`|'/'||`>=`|GE||
+|`mod`|MOD||`>`|GT||
+|`=`|ASSIGN||`=`|EQ||
 
 ##### Reserved Words
 
 |lexeme|token||lexeme|token||lexeme|token|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|`var`|**VAR**||`true`|**TRUE**||`for`|**FOR**|
-|`array`|**ARRAY**||`false`|**FALSE**||`to`|**TO**|
-|`of`|**OF**||`while`|**WHILE**||`begin`|**BEGIN_BLOCK**|
-|`boolean`|**BOOLEAN**||`do`|**DO**||`end`|**END_BLOCK**|
-|`integer`|**INTEGER**||`if`|**IF**||`print`|**PRINT**|
-|`real`|**REAL**||`then`|**THEN**||`read`|**READ**|
-|`string`|**STRING**||`else`|**ELSE**||`return`|**RETURN**|
+|`var`|VAR||`true`|TRUE||`for`|FOR|
+|`array`|ARRAY||`false`|FALSE||`to`|TO|
+|`of`|OF||`while`|WHILE||`begin`|BEGIN_BLOCK|
+|`boolean`|BOOLEAN||`do`|DO||`end`|END_BLOCK|
+|`integer`|INTEGER||`if`|IF||`print`|PRINT|
+|`real`|REAL||`then`|THEN||`read`|READ|
+|`string`|STRING||`else`|ELSE||`return`|RETURN|
 
 ##### Identifiers
 
 |lexeme|token|
 |:-:|:-:|
-|`<id>`|**IDENTIFIER**|
+|`<id>`|IDENTIFIER|
 
 ##### Integer Constants
 
 |lexeme|token|
 |:-:|:-:|
-|`<oct_integer>`|**OCTAL_INTEGER**|
-|`<integer>`|**DECIMAL_INTEGER**|
+|`<oct_integer>`|OCTAL_INTEGER|
+|`<integer>`|DECIMAL_INTEGER|
 
 ##### Floating-Point Constants
 
 |lexeme|token|
 |:-:|:-:|
-|`<float>`|**FLOATING_POINT_NUMBER**|
+|`<float>`|FLOATING_POINT_NUMBER|
 
 ##### Scientific Notations
 
 |lexeme|token|
 |:-:|:-:|
-|`<scientific>`|**SCIENTIFIC_NOTATION**|
+|`<scientific>`|SCIENTIFIC_NOTATION|
 
 #### Syntactic Definitions
 
