@@ -33,6 +33,8 @@ Modify the lexical scanner to enable it to pass token information to the syntax 
 
 Define the tokens that will be passed from the scanner.
 
+##### For Example
+
 ```yacc
 /* Identifiers */
 %token IDENTIFIER
@@ -98,6 +100,41 @@ Define the tokens that will be passed from the scanner.
 
 Complete the following structure according to the description in the `spec`.
 
+##### For Example
+
+```yacc
+%%
+
+/* Program Units */
+program_unit: program | function;
+
+    /* Program */
+program: IDENTIFIER ';' declaration_list function_list compound_statement END_BLOCK;
+
+declaration_list: /* empty */ | sub_declaration_list;
+sub_declaration_list: declaration | sub_declaration_list declaration;
+
+function_list: /* empty */ | sub_function_list;
+sub_function_list: function | sub_function_list function;
+
+    /* Function */
+function: function_declaration | function_definition;
+
+function_declaration: function_header ';';
+function_definition: function_header compound_statement END_BLOCK;
+
+function_header: IDENTIFIER '(' formal_argument_list ')' ':' scalar_type | IDENTIFIER '(' formal_argument_list ')';
+
+formal_argument_list: /* empty */ | sub_formal_argument_list;
+sub_formal_argument_list: formal_argument | sub_formal_argument_list ';' formal_argument;
+
+formal_argument: identifier_list ':' type;
+
+%%
+```
+
+##### Structure
+
 - _Program Units_
   - _Program_
   - _Function_
@@ -132,39 +169,6 @@ Complete the following structure according to the description in the `spec`.
   - _binary_operation_
   - _unary_operation_
   - _( expression )_
-
-##### For Example
-
-```yacc
-%%
-
-/* Program Units */
-program_unit: program | function;
-
-    /* Program */
-program: IDENTIFIER ';' declaration_list function_list compound_statement END_BLOCK;
-
-declaration_list: /* empty */ | sub_declaration_list;
-sub_declaration_list: declaration | sub_declaration_list declaration;
-
-function_list: /* empty */ | sub_function_list;
-sub_function_list: function | sub_function_list function;
-
-    /* Function */
-function: function_declaration | function_definition;
-
-function_declaration: function_header ';';
-function_definition: function_header compound_statement END_BLOCK;
-
-function_header: IDENTIFIER '(' formal_argument_list ')' ':' scalar_type | IDENTIFIER '(' formal_argument_list ')';
-
-formal_argument_list: /* empty */ | sub_formal_argument_list;
-sub_formal_argument_list: formal_argument | sub_formal_argument_list ';' formal_argument;
-
-formal_argument: identifier_list ':' type;
-
-%%
-```
 
 ## What is the hardest you think in this project
 
