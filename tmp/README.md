@@ -22,7 +22,7 @@ This project implements a syntax parser for the `P` language using `yacc`. Addit
 - /report
   - **`README.md`**
 
-### Scanner (scanner.l)
+### Scanner (**`scanner.l`**)
 
 Modify the lexical scanner to enable it to pass token information to the syntax parser.
 
