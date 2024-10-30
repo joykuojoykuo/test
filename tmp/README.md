@@ -175,7 +175,7 @@ formal_argument: identifier_list ':' type;
 
 ## What is the hardest you think in this project
 
-I think the most difficult part is error checking, as there are many complex syntactic definitions. After completing the work, I spent a lot of time identifying errors. I not only needed to check the syntax parser but also had to revisit the lexical scanner for potential mistakes. I encountered a particularly frustrating issue where only the type `string` was unmatched. After a long search, I realized that I had defined one of the conditions in the lexical scanner as **STRING**, which conflicted with the `string` type in the syntax parser, which was also named **STRING**. This naming conflict caused the matching issues I was experiencing. Overall, this was the most challenging part for me.
+I think the most difficult part is error checking, as there are many complex syntactic definitions. After completing the work, I spent a lot of time identifying errors. I not only needed to check the syntax parser but also had to revisit the lexical scanner for potential mistakes. I encountered a particularly frustrating issue where only the type `string` was unmatched. After a long search, I realized that I had defined one of the conditions in the lexical scanner as "**STRING**," which conflicted with the `string` type in the syntax parser, which was also named "**STRING**." This naming conflict caused the matching issues I was experiencing. Overall, this was the most challenging part for me.
 
 ## Feedback to T.A.s
 
